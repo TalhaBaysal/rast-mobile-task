@@ -16,18 +16,6 @@ import { useState } from "react";
 import { Dialog } from "./index.ts";
 import ISocialMedia from "../model/ISocialMedia.ts";
 
-// Declare a global extension to the Array interface
-declare global {
-  interface Array<T> {
-    equals(value: T): boolean;
-  }
-}
-
-// Implement the equals method for Array prototype
-Array.prototype.equals = function <T>(value: T): boolean {
-  return this.some((item) => item === value);
-};
-
 // Array of allowed page sizes for the data grid
 const allowedPageSizes = [5, 10, "all"];
 
