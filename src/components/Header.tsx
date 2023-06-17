@@ -53,6 +53,7 @@ const Header = () => {
                 justifyContent: "space-between",
               }}
             >
+              {/* Mobile menu button */}
               <IconButton
                 color="inherit"
                 aria-label="open drawer"
@@ -65,6 +66,7 @@ const Header = () => {
               <Box sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
                 <Logo />
               </Box>
+              {/* Navigation links */}
               <Box
                 sx={{
                   flexGrow: 0.7,
@@ -79,6 +81,7 @@ const Header = () => {
                 ))}
               </Box>
 
+              {/* Social media icons */}
               <Box sx={{ display: { sm: "block" } }}>
                 <YouTubeIcon sx={{ marginRight: "10px" }} color="primary" />
                 <InstagramIcon sx={{ marginRight: "10px" }} color="primary" />
@@ -97,6 +100,7 @@ const Header = () => {
           </AppBar>
         </Container>
 
+        {/* Mobile drawer */}
         <Box component="nav">
           <Drawer
             variant="temporary"
@@ -118,6 +122,7 @@ const Header = () => {
                 <Logo />
               </Typography>
               <Divider />
+              {/* Drawer navigation links */}
               <List>
                 {pages.map((item) => (
                   <ListItem key={item} disablePadding>

@@ -17,12 +17,13 @@ interface DialogProps {
 }
 
 const Dialog: React.FC<DialogProps> = ({ open, onClose, setData }) => {
+  // Initialize formik for form handling
   const formik = useFormik({
     initialValues: initialSocialMedia,
-    validationSchema: null,
+    validationSchema: null, // Add validation schema if needed
     onSubmit: (newData) => {
-      addSocialMedia({ newData, setData });
-      onClose();
+      addSocialMedia({ newData, setData }); // Call the service function to add social media data
+      onClose(); // Close the dialog
     },
   });
 
@@ -43,10 +44,12 @@ const Dialog: React.FC<DialogProps> = ({ open, onClose, setData }) => {
       <Fade in={open}>
         <Box id="dialogContainer">
           <div className="icon-container">
+            {/* Render the close icon */}
             <Close onClick={onClose} className="close-dialog-icon" />
           </div>
           <form onSubmit={formik.handleSubmit}>
             <div className="input-container">
+              {/* Render input fields for social media link, name, and description */}
               <div>
                 <label className="input-label">Sosyal Medya Linki</label>
                 <TextField
@@ -97,6 +100,7 @@ const Dialog: React.FC<DialogProps> = ({ open, onClose, setData }) => {
               </div>
             </div>
             <div className="button-container">
+              {/* Render the cancel button */}
               <Button
                 style={{ color: "#744bfc", background: "#F5F7FF" }}
                 variant="contained"
@@ -104,6 +108,7 @@ const Dialog: React.FC<DialogProps> = ({ open, onClose, setData }) => {
               >
                 Vazgeç
               </Button>
+              {/* Render the save button */}
               <Button variant="contained" type="submit">
                 Kaydet
               </Button>

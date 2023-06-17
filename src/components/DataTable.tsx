@@ -16,24 +16,29 @@ import { useState } from "react";
 import { Dialog } from "./index.ts";
 import ISocialMedia from "../model/ISocialMedia.ts";
 
+// Declare a global extension to the Array interface
 declare global {
   interface Array<T> {
     equals(value: T): boolean;
   }
 }
 
+// Implement the equals method for Array prototype
 Array.prototype.equals = function <T>(value: T): boolean {
   return this.some((item) => item === value);
 };
 
+// Array of allowed page sizes for the data grid
 const allowedPageSizes = [5, 10, "all"];
 
+// Column configuration for the data grid
 const columns = [
   { dataField: "link", caption: "Sosyal Medya Linki" },
   { dataField: "name", caption: "Sosyal Medya Adı" },
   { dataField: "description", caption: "Açıklama" },
 ];
 
+// Constants for Select component styling
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -45,19 +50,23 @@ const MenuProps = {
   },
 };
 
+// DataTable component
 const DataTable = () => {
+  // State variables
   const [open, setOpen] = useState(false);
   const [options, setOptions] = useState<string[]>([]);
   const [filterValue, setFilterValue] = React.useState("");
   const [data, setData] = useState<ISocialMedia[]>([]);
   const [socialMediaNames, setSocialMediaNames] = React.useState<string[]>([]);
 
+  // Fetch data from local storage on component mount
   useEffect(() => {
     const localData = localStorage.getItem("socialMedia");
     localData && setData([...JSON.parse(localData)]);
     // setData([...mockData]);
   }, []);
 
+  // Update options whenever data changes
   useEffect(() => {
     const localData = localStorage.getItem("socialMedia");
     const names =
@@ -65,14 +74,17 @@ const DataTable = () => {
     setOptions([...new Set(names)]);
   }, [data]);
 
+  // Event handler for filter change
   const handleFilterChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFilterValue(event.target.value);
   };
 
+  // Transform data into the required format for the data grid
   const dataSource = data.map(function (item, index) {
     return { id: index + 1, ...item };
   });
 
+  // Apply filter and selected social media names to the data source
   const filterDataSource = dataSource
     .filter(
       (row) =>
@@ -86,6 +98,7 @@ const DataTable = () => {
         : row;
     });
 
+  // Event handler for social media names select change
   const handleChange = (event: SelectChangeEvent<typeof socialMediaNames>) => {
     const {
       target: { value },
@@ -93,20 +106,24 @@ const DataTable = () => {
     setSocialMediaNames(typeof value === "string" ? value.split(",") : value);
   };
 
+  // Event handler for opening the dialog
   const handleOpen = () => {
     setOpen(true);
   };
 
+  // Event handler for closing the dialog
   const handleClose = () => {
     setOpen(false);
   };
 
   return (
     <>
+      {/* Render the Dialog component */}
       <Dialog open={open} onClose={handleClose} setData={setData} />
       <Container id="container">
         <div id="datagrid-header">
           <div id="search-input">
+            {/* Render the search input field */}
             <TextField
               size="small"
               label="Search objects..."
@@ -122,6 +139,7 @@ const DataTable = () => {
             />
             <div id="filter-icon-container">
               <div id="filter-icon">
+                {/* Render the select component for filtering social media names */}
                 <Select
                   size="small"
                   labelId="demo-multiple-checkbox-label"
@@ -139,6 +157,7 @@ const DataTable = () => {
                   renderValue={(selected) => selected.join(", ")}
                   MenuProps={MenuProps}
                 >
+                  {/* Render the options for select component */}
                   {options.map((option, index) => (
                     <MenuItem key={index} value={option}>
                       <Checkbox
@@ -151,6 +170,7 @@ const DataTable = () => {
               </div>
             </div>
           </div>
+          {/* Render the button for adding a new account */}
           <Button
             style={{ borderRadius: 39 }}
             variant="contained"
@@ -160,6 +180,7 @@ const DataTable = () => {
             <span style={{ marginTop: 3 }}>Yeni Hesap Ekle</span>
           </Button>
         </div>
+        {/* Render the DataGrid component */}
         <DataGrid
           id="gridContainer"
           dataSource={filterDataSource}
@@ -167,8 +188,11 @@ const DataTable = () => {
           showBorders={true}
           columns={columns}
         >
+          {/* Configure scrolling behavior */}
           <Scrolling rowRenderingMode="virtual" />
+          {/* Enable paging with default page size */}
           <Paging defaultPageSize={10} />
+          {/* Render pager component */}
           <Pager
             visible={true}
             allowedPageSizes={allowedPageSizes}

@@ -1,5 +1,6 @@
 @import "./_variables";
 
+/* Container */
 #container {
   padding-left: 60px !important;
   padding-right: 60px !important;
@@ -7,20 +8,24 @@
   max-width: 100% !important;
   min-width: 400px;
 
+  /* DataGrid Header */
   #datagrid-header {
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;
     flex-wrap: wrap;
 
+    /* Button styles */
     .MuiButton-root {
       margin: 5px 0;
     }
 
+    /* Search input section */
     #search-input {
       display: flex;
       gap: 10px;
 
+      /* Text field styles */
       .MuiTextField-root {
         width: 380px;
         margin: 5px 0;
@@ -30,11 +35,13 @@
         }
       }
 
+      /* Filter icon container */
       #filter-icon-container {
         display: flex;
         align-items: center;
         margin: 5px 0;
 
+        /* Filter icon */
         #filter-icon {
           display: flex;
           justify-content: center;
@@ -45,15 +52,18 @@
           height: 42px;
           cursor: pointer;
 
+          /* Select styles */
           .MuiInputBase-root {
             width: 100%;
             height: 100%;
 
+            /* Select text color */
             .MuiSelect-select {
               color: white;
             }
           }
 
+          /* Filter icon styles */
           .filter-icon {
             color: $primary-color;
             margin-right: 5px;
@@ -62,9 +72,11 @@
         }
       }
 
+      /* Input base styles */
       .MuiInputBase-root {
         padding-right: 0;
 
+        /* Search icon */
         #search-icon {
           color: $secondary-color;
           background: $primary-color;
@@ -73,6 +85,7 @@
           border-bottom-right-radius: 29px;
         }
 
+        /* Outlined input styles */
         .MuiOutlinedInput-notchedOutline {
           border: none !important;
         }
@@ -80,34 +93,43 @@
     }
   }
 
+  /* Grid Container */
   #gridContainer {
+    /* Table cell styles */
     td {
       padding: 20px;
     }
 
+    /* Empty state styles */
     .dx-empty {
       background-color: #ffff;
 
+      /* Hide table in empty state */
       table {
         display: none;
       }
     }
 
+    /* DataGrid styles */
     .dx-datagrid {
       background: transparent;
 
+      /* Column indicators */
       .dx-column-indicators {
         color: $primary-color;
       }
 
+      /* Text editor container styles */
       .dx-texteditor-container {
         border-radius: 39px;
       }
 
+      /* Toolbar styles */
       .dx-toolbar {
         background: transparent;
       }
 
+      /* DataGrid headers styles */
       .dx-datagrid-headers {
         border-bottom: none;
         border-top: 1px solid #eaeaea;
@@ -118,12 +140,14 @@
         font-weight: bold;
         color: black;
 
+        /* DataGrid content styles */
         .dx-datagrid-content {
           border-top-left-radius: 8px;
           border-top-right-radius: 8px;
         }
       }
 
+      /* DataGrid rows view styles */
       .dx-datagrid-rowsview {
         border-top: none;
         border-bottom: 1px solid #eaeaea;
@@ -132,6 +156,7 @@
         border-bottom-right-radius: 8px;
         border-bottom-left-radius: 8px;
 
+        /* Row hover effect */
         .dx-row {
           &:hover {
             box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.11);
@@ -139,6 +164,7 @@
         }
       }
 
+      /* DataGrid pager styles */
       .dx-datagrid-pager {
         color: $primary-color;
         border: none;
@@ -150,10 +176,12 @@
         justify-content: space-between;
         align-items: center;
 
+        /* Navigate button styles */
         .dx-navigate-button {
           font-family: "DXIcons" !important;
         }
 
+        /* Page sizes styles */
         .dx-page-sizes {
           display: flex;
           justify-content: center;
@@ -165,11 +193,13 @@
             content: "Show:";
           }
 
+          /* Select box styles */
           .dx-selectbox {
             width: 95px !important;
             border-radius: 39px;
             border: 1px solid #cfc0ff;
 
+            /* Dropdown editor icon styles */
             .dx-dropdowneditor-icon {
               color: $primary-color;
 
@@ -198,6 +228,7 @@
               }
             }
 
+            /* Text editor input container styles */
             .dx-texteditor-input-container {
               &::after {
                 content: "rows";
@@ -206,23 +237,28 @@
           }
         }
 
+        /* Pages styles */
         .dx-pages {
           margin-bottom: 10px;
         }
 
+        /* Page index styles */
         .dx-page-index {
           width: 60px !important;
         }
 
+        /* Info styles */
         .dx-info {
           color: #c9c9c9;
         }
 
+        /* Disabled button styles */
         .dx-button-disable {
           color: #c9c9c9;
         }
       }
 
+      /* DataGrid table body styles */
       tbody {
         tr {
           td {
@@ -230,6 +266,7 @@
           }
         }
 
+        /* Alternating row background */
         .dx-row:nth-child(odd) {
           background: #fff;
         }

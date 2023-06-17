@@ -1,5 +1,6 @@
 @import "./_variables";
 
+/* Dialog Container */
 #dialogContainer {
   border-radius: 13px;
   position: absolute;
@@ -11,11 +12,14 @@
   box-shadow: 24px;
   padding: 32px;
 
+  /* Button container */
   .button-container {
     display: flex;
     justify-content: end;
     margin-top: 30px;
     gap: 20px;
+
+    /* Button styles */
     button {
       min-width: 85px;
       border-radius: 34px;
@@ -23,11 +27,13 @@
     }
   }
 
+  /* Input container */
   .input-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
 
+    /* Input label styles */
     .input-label {
       display: inline-block;
       font-family: "Poppins", sans-serif;
@@ -41,20 +47,24 @@
     }
   }
 
+  /* Form control styles */
   .MuiFormControl-root {
     width: 100%;
 
+    /* Outlined input styles */
     .MuiOutlinedInput-notchedOutline {
       border: 1px solid #d9d9d9;
       border-radius: 38px;
     }
   }
 
+  /* Icon container */
   .icon-container {
     display: flex;
     justify-content: end;
     width: 100%;
 
+    /* Close dialog icon styles */
     .close-dialog-icon {
       cursor: pointer;
       margin-right: -10px;
