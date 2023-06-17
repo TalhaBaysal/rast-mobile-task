@@ -55,6 +55,7 @@ rast-mobile-task is a task for a job interview.
 ├── index.html
 ├── package.json
 ├── pnpm-lock.yaml
+├── Project Document.docx
 ├── README.md
 ├── tsconfig.json
 ├── tsconfig.node.json
