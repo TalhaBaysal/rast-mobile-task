@@ -1,0 +1,64 @@
+@import "./_variables";
+
+#dialogContainer {
+  border-radius: 13px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: $secondary-color;
+  box-shadow: 24px;
+  padding: 32px;
+
+  .button-container {
+    display: flex;
+    justify-content: end;
+    margin-top: 30px;
+    gap: 20px;
+    button {
+      min-width: 85px;
+      border-radius: 34px;
+      box-shadow: none;
+    }
+  }
+
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .input-label {
+      display: inline-block;
+      font-family: "Poppins", sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 13px;
+      line-height: 20px;
+      color: #06163a;
+      margin-bottom: 5px;
+      margin-left: 5px;
+    }
+  }
+
+  .MuiFormControl-root {
+    width: 100%;
+
+    .MuiOutlinedInput-notchedOutline {
+      border: 1px solid #d9d9d9;
+      border-radius: 38px;
+    }
+  }
+
+  .icon-container {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+
+    .close-dialog-icon {
+      cursor: pointer;
+      margin-right: -10px;
+      margin-top: -10px;
+    }
+  }
+}
