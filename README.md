@@ -219,9 +219,10 @@ rast-mobile-task is a task for a job interview.
 
 Before you begin, ensure that you have the following prerequisites installed:
 > `📌  Node.js`
+> `📌  vite`
 > `📌  npm`
 > `📌  pnpm`
-> `📌  Typescript`
+> `📌  typescript`
 
 ### 💻 Installation
 
